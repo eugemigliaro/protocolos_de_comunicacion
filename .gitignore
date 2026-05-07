@@ -1,0 +1,14 @@
+# Material oficial — local only
+*.pdf
+*.zip
+*.docx
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Inbox archivado intermedio si crece mucho (opcional, comentado por default)
+# inbox/_archivado/
