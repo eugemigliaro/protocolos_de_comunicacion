@@ -12,3 +12,6 @@ Thumbs.db
 
 # Inbox archivado intermedio si crece mucho (opcional, comentado por default)
 # inbox/_archivado/
+
+# Repo entregable del grupo — es un git aparte, vive acá pero no se trackea desde el repo de estudio
+practica/tpe_protos_g14/
