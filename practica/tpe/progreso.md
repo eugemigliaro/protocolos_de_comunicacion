@@ -4,9 +4,9 @@ Estado vivo. Actualizar al cerrar cada bloque de trabajo.
 
 ## Estado general
 
-- **Fase actual:** Fase 0 cerrada → lista para arrancar **Fase 1 (SOCKS5 core)**.
+- **Fase actual:** Fase 1 (SOCKS5 core) **cerrada** → lista para arrancar **Fase 2 (concurrencia/robustez)**.
 - **Repo entregable:** `practica/tpe_protos_g14/`, pusheado a `origin/main`.
-- **Última actualización:** scaffold + toolkit de cátedra integrado.
+- **Última actualización:** núcleo SOCKS5 funcional (handshake, request, resolución, connect, relay).
 
 ## Hecho
 
@@ -19,9 +19,16 @@ Estado vivo. Actualizar al cerrar cada bloque de trabajo.
 - [x] `make all` compila y ambos binarios corren. Repo pusheado a GitHub.
 - [x] Material de cátedra en `material/tpe-programacion/` (parches, args, makefile, example).
 
+- [x] **Fase 1 — SOCKS5 core**: máquina de estados (HELLO/AUTH/REQUEST/RESOLVE/CONNECT/RELAY),
+      auth RFC1929, IPv4/IPv6/FQDN, resolución en thread + iteración de IPs (RF4), reply codes
+      completos (RF5), relay con parciales y medio cierre. 4 commits en `origin/main`.
+      Verificado: curl SOCKS5 con auth (200), 5 MB íntegros, 20 conexiones concurrentes (20×200),
+      credenciales malas y connection-refused rechazados.
+
 ## En curso
 
-- [ ] Arrancar **Fase 1 — SOCKS5 core** (ver `plan.md`).
+- [ ] Arrancar **Fase 2 — Concurrencia y robustez** (ver `plan.md`): ≥500 conexiones, graceful
+      shutdown SIGTERM/SIGINT, timeouts de conexiones inactivas.
 
 ## Pendientes menores
 

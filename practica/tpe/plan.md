@@ -33,13 +33,17 @@ HELLO (negociación de método, RFC1928)
 - [ ] `CLAUDE.md` en el repo del grupo apuntando a este contexto.
 - [ ] Verificar `make clean && make all`.
 
-### Fase 1 — SOCKS5 core (RF2, RF3, RF5)
-- [ ] Integrar utilidades de cátedra (selector, stm, buffer) con atribución + parser de args oficial.
-- [ ] Socket pasivo no bloqueante + accept multiplexado.
-- [ ] Estados HELLO → AUTH(RFC1929) → REQUEST.
-- [ ] RESOLVE con `getaddrinfo` (IPv4/IPv6/FQDN).
-- [ ] CONNECT y RELAY bidireccional con parciales.
-- [ ] Reply codes completos.
+### Fase 1 — SOCKS5 core (RF2, RF3, RF5)  ← *hecha*
+- [x] Integrar utilidades de cátedra (selector, stm, buffer) con atribución + parser de args oficial.
+- [x] Socket pasivo no bloqueante + accept multiplexado.
+- [x] Estados HELLO → AUTH(RFC1929) → REQUEST.
+- [x] RESOLVE con `getaddrinfo` (IPv4/IPv6/FQDN).
+- [x] CONNECT y RELAY bidireccional con parciales.
+- [x] Reply codes completos.
+
+> Nota: la resolución se hizo desde ya en thread aparte y el CONNECT itera todas las IPs (RF4,
+> originalmente listado en Fase 2) porque es la forma natural y no-descartable en esta arquitectura.
+> Queda para Fase 2 el resto: ≥500 conexiones, graceful shutdown y timeouts.
 
 ### Fase 2 — Concurrencia y robustez (RF1, RF9, C3, C4)
 - [ ] Soportar ≥500 conexiones concurrentes.
